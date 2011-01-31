@@ -1,0 +1,133 @@
+<%= form_for(@resort) do |f| %>
+  <% if @resort.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resort.errors.count, "error") %> prohibited this resort from being saved:</h2>
+
+      <ul>
+      <% @resort.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :altitude_m %><br />
+    <%= f.text_field :altitude_m %>
+  </div>
+  <div class="field">
+    <%= f.label :altitude_ft %><br />
+    <%= f.text_field :altitude_ft %>
+  </div>
+  <div class="field">
+    <%= f.label :season_start %><br />
+    <%= f.datetime_select :season_start %>
+  </div>
+  <div class="field">
+    <%= f.label :season_end %><br />
+    <%= f.datetime_select :season_end %>
+  </div>
+  <div class="field">
+    <%= f.label :total_runs %><br />
+    <%= f.text_field :total_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :green_runs %><br />
+    <%= f.text_field :green_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :blue_runs %><br />
+    <%= f.text_field :blue_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :red_runs %><br />
+    <%= f.text_field :red_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :black_runs %><br />
+    <%= f.text_field :black_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :single_diamond_runs %><br />
+    <%= f.text_field :single_diamond_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :double_diamond_runs %><br />
+    <%= f.text_field :double_diamond_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :triple_diamond_runs %><br />
+    <%= f.text_field :triple_diamond_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :other_runs %><br />
+    <%= f.text_field :other_runs %>
+  </div>
+  <div class="field">
+    <%= f.label :total_lifts %><br />
+    <%= f.text_field :total_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :carpet_lifts %><br />
+    <%= f.text_field :carpet_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :drag_lifts %><br />
+    <%= f.text_field :drag_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :pommer_lifts %><br />
+    <%= f.text_field :pommer_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :chair_lifts %><br />
+    <%= f.text_field :chair_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :covered_chair_lifts %><br />
+    <%= f.text_field :covered_chair_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :express_chair_lifts %><br />
+    <%= f.text_field :express_chair_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :gondola_lifts %><br />
+    <%= f.text_field :gondola_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :other_lifts %><br />
+    <%= f.text_field :other_lifts %>
+  </div>
+  <div class="field">
+    <%= f.label :terrain_parks %><br />
+    <%= f.text_field :terrain_parks %>
+  </div>
+  <div class="field">
+    <%= f.label :snow_making %><br />
+    <%= f.check_box :snow_making %>
+  </div>
+  <div class="field">
+    <%= f.label :average_snow_cm %><br />
+    <%= f.text_field :average_snow_cm %>
+  </div>
+  <div class="field">
+    <%= f.label :piste_map_link %><br />
+    <%= f.text_field :piste_map_link %>
+  </div>
+  <div class="field">
+    <%= f.label :official_site_link %><br />
+    <%= f.text_field :official_site_link %>
+  </div>
+  <div class="field">
+    <%= f.label :tourism_board_link %><br />
+    <%= f.text_field :tourism_board_link %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

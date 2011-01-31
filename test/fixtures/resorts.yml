@@ -1,0 +1,51 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  altitude: MyString
+  season_start: 2011-01-31 11:01:10
+  season_end: 2011-01-31 11:01:10
+  green_runs: 1
+  blue_runs: 1
+  red_runs: 1
+  black_runs: 1
+  single_diamond_runs: 1
+  double_diamond_runs: 1
+  triple_diamond_runs: 1
+  other_runs: 1
+  carpet_lifts: 1
+  drag_lifts: 1
+  pommer_lifts: 1
+  chair_lifts: 1
+  covered_chair_lifts: 1
+  express_chair_lifts: 1
+  gondola_lifts: 1
+  other_lifts: 1
+  terrain_parks: 1
+  snow_making: false
+  average_snow_cm: 1
+
+two:
+  name: MyString
+  altitude: MyString
+  season_start: 2011-01-31 11:01:10
+  season_end: 2011-01-31 11:01:10
+  green_runs: 1
+  blue_runs: 1
+  red_runs: 1
+  black_runs: 1
+  single_diamond_runs: 1
+  double_diamond_runs: 1
+  triple_diamond_runs: 1
+  other_runs: 1
+  carpet_lifts: 1
+  drag_lifts: 1
+  pommer_lifts: 1
+  chair_lifts: 1
+  covered_chair_lifts: 1
+  express_chair_lifts: 1
+  gondola_lifts: 1
+  other_lifts: 1
+  terrain_parks: 1
+  snow_making: false
+  average_snow_cm: 1

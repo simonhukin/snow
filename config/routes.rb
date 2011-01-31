@@ -1,4 +1,10 @@
 Snow::Application.routes.draw do
+  resources :link_categories
+
+  resources :links
+
+  resources :resorts
+
   get "home/index"
 
   # The priority is based upon order of creation:

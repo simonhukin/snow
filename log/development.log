@@ -44,3 +44,517 @@ Started GET "/" for 127.0.0.1 at 2011-01-31 09:32:51 +1100
   Processing by HomeController#index as HTML
 Rendered home/index.html.erb within layouts/application (3.0ms)
 Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (26.0ms)[0m  [1mCREATE TABLE "resorts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "altitude" varchar(255), "season_start" datetime, "season_end" datetime, "green_runs" integer, "blue_runs" integer, "red_runs" integer, "black_runs" integer, "single_diamond_runs" integer, "double_diamond_runs" integer, "triple_diamond_runs" integer, "other_runs" integer, "carpet_lifts" integer, "drag_lifts" integer, "pommer_lifts" integer, "chair_lifts" integer, "covered_chair_lifts" integer, "express_chair_lifts" integer, "gondola_lifts" integer, "other_lifts" integer, "terrain_parks" integer, "snow_making" boolean, "average_snow_cm" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110131000110')
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+
+
+Started GET "/resort" for 127.0.0.1 at 2011-01-31 11:02:09 +1100
+
+ActionController::RoutingError (No route matches "/resort"):
+  
+
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 11:02:12 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (0.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 185ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resorts/new" for 127.0.0.1 at 2011-01-31 11:11:28 +1100
+  Processing by ResortsController#new as HTML
+Rendered resorts/_form.html.erb (114.0ms)
+Rendered resorts/new.html.erb within layouts/application (120.0ms)
+Completed 200 OK in 149ms (Views: 131.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resorts" for 127.0.0.1 at 2011-01-31 11:30:42 +1100
+  Processing by ResortsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bFNomvcq+HDZhm1x3sm5LQKMgfqXw5J0yWZwkuV8Kr8=", "resort"=>{"name"=>"Lake Louise", "altitude"=>"2637 metres (8650 feet)", "season_start(1i)"=>"2010", "season_start(2i)"=>"11", "season_start(3i)"=>"5", "season_start(4i)"=>"00", "season_start(5i)"=>"11", "season_end(1i)"=>"2011", "season_end(2i)"=>"5", "season_end(3i)"=>"1", "season_end(4i)"=>"00", "season_end(5i)"=>"11", "green_runs"=>"17", "blue_runs"=>"10", "red_runs"=>"", "black_runs"=>"", "single_diamond_runs"=>"53", "double_diamond_runs"=>"40", "triple_diamond_runs"=>"", "other_runs"=>"", "carpet_lifts"=>"1", "drag_lifts"=>"2", "pommer_lifts"=>"", "chair_lifts"=>"4", "covered_chair_lifts"=>"", "express_chair_lifts"=>"1", "gondola_lifts"=>"1", "other_lifts"=>"", "terrain_parks"=>"1", "snow_making"=>"1", "average_snow_cm"=>"452"}, "commit"=>"Create Resort"}
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "resorts" ("name", "altitude", "season_start", "season_end", "green_runs", "blue_runs", "red_runs", "black_runs", "single_diamond_runs", "double_diamond_runs", "triple_diamond_runs", "other_runs", "carpet_lifts", "drag_lifts", "pommer_lifts", "chair_lifts", "covered_chair_lifts", "express_chair_lifts", "gondola_lifts", "other_lifts", "terrain_parks", "snow_making", "average_snow_cm", "created_at", "updated_at") VALUES ('Lake Louise', '2637 metres (8650 feet)', '2010-11-05 00:11:00.000000', '2011-05-01 00:11:00.000000', 17, 10, NULL, NULL, 53, 40, NULL, NULL, 1, 2, NULL, 4, NULL, 1, 1, NULL, 1, 't', 452, '2011-01-31 00:30:42.352702', '2011-01-31 00:30:42.352702')[0m
+Redirected to http://localhost:3000/resorts/1
+Completed 302 Found in 128ms
+
+
+Started GET "/resorts/1" for 127.0.0.1 at 2011-01-31 11:30:42 +1100
+  Processing by ResortsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResort Load (1.0ms)[0m  SELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 1) LIMIT 1
+Rendered resorts/show.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 69ms (Views: 52.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 11:31:12 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (1.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 48ms (Views: 38.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/resorts/1/edit" for 127.0.0.1 at 2011-01-31 11:31:18 +1100
+  Processing by ResortsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResort Load (1.0ms)[0m  SELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 1) LIMIT 1
+Rendered resorts/_form.html.erb (71.0ms)
+Rendered resorts/edit.html.erb within layouts/application (77.0ms)
+Completed 200 OK in 105ms (Views: 88.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/resorts/1" for 127.0.0.1 at 2011-01-31 11:31:21 +1100
+  Processing by ResortsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bFNomvcq+HDZhm1x3sm5LQKMgfqXw5J0yWZwkuV8Kr8=", "resort"=>{"name"=>"Lake Louise", "altitude"=>"2637 metres (8650 feet)", "season_start(1i)"=>"2010", "season_start(2i)"=>"11", "season_start(3i)"=>"5", "season_start(4i)"=>"00", "season_start(5i)"=>"11", "season_end(1i)"=>"2011", "season_end(2i)"=>"5", "season_end(3i)"=>"1", "season_end(4i)"=>"00", "season_end(5i)"=>"11", "green_runs"=>"17", "blue_runs"=>"10", "red_runs"=>"", "black_runs"=>"", "single_diamond_runs"=>"53", "double_diamond_runs"=>"40", "triple_diamond_runs"=>"", "other_runs"=>"", "carpet_lifts"=>"1", "drag_lifts"=>"2", "pommer_lifts"=>"", "chair_lifts"=>"4", "covered_chair_lifts"=>"", "express_chair_lifts"=>"1", "gondola_lifts"=>"1", "other_lifts"=>"", "terrain_parks"=>"1", "snow_making"=>"1", "average_snow_cm"=>"452"}, "commit"=>"Update Resort", "id"=>"1"}
+  [1m[36mResort Load (20.0ms)[0m  [1mSELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/resorts/1
+Completed 302 Found in 60ms
+
+
+Started GET "/resorts/1" for 127.0.0.1 at 2011-01-31 11:31:21 +1100
+  Processing by ResortsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mResort Load (1.0ms)[0m  SELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 1) LIMIT 1
+Rendered resorts/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 70ms (Views: 34.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 11:31:24 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (1.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 50ms (Views: 39.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/resorts/new" for 127.0.0.1 at 2011-01-31 11:35:07 +1100
+  Processing by ResortsController#new as HTML
+Rendered resorts/_form.html.erb (27.0ms)
+Rendered resorts/new.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 76ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resorts" for 127.0.0.1 at 2011-01-31 11:35:24 +1100
+  Processing by ResortsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bFNomvcq+HDZhm1x3sm5LQKMgfqXw5J0yWZwkuV8Kr8=", "resort"=>{"name"=>"Test resort to be destroyed", "altitude"=>"234234234", "season_start(1i)"=>"2011", "season_start(2i)"=>"1", "season_start(3i)"=>"31", "season_start(4i)"=>"00", "season_start(5i)"=>"35", "season_end(1i)"=>"2011", "season_end(2i)"=>"1", "season_end(3i)"=>"31", "season_end(4i)"=>"00", "season_end(5i)"=>"35", "green_runs"=>"", "blue_runs"=>"", "red_runs"=>"", "black_runs"=>"", "single_diamond_runs"=>"", "double_diamond_runs"=>"", "triple_diamond_runs"=>"", "other_runs"=>"", "carpet_lifts"=>"", "drag_lifts"=>"", "pommer_lifts"=>"", "chair_lifts"=>"", "covered_chair_lifts"=>"", "express_chair_lifts"=>"", "gondola_lifts"=>"", "other_lifts"=>"", "terrain_parks"=>"", "snow_making"=>"1", "average_snow_cm"=>"2342"}, "commit"=>"Create Resort"}
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "resorts" ("name", "altitude", "season_start", "season_end", "green_runs", "blue_runs", "red_runs", "black_runs", "single_diamond_runs", "double_diamond_runs", "triple_diamond_runs", "other_runs", "carpet_lifts", "drag_lifts", "pommer_lifts", "chair_lifts", "covered_chair_lifts", "express_chair_lifts", "gondola_lifts", "other_lifts", "terrain_parks", "snow_making", "average_snow_cm", "created_at", "updated_at") VALUES ('Test resort to be destroyed', '234234234', '2011-01-31 00:35:00.000000', '2011-01-31 00:35:00.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 't', 2342, '2011-01-31 00:35:24.529842', '2011-01-31 00:35:24.529842')
+Redirected to http://localhost:3000/resorts/2
+Completed 302 Found in 87ms
+
+
+Started GET "/resorts/2" for 127.0.0.1 at 2011-01-31 11:35:24 +1100
+  Processing by ResortsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mResort Load (2.0ms)[0m  [1mSELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 2) LIMIT 1[0m
+Rendered resorts/show.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 73ms (Views: 54.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 11:35:28 +1100
+  Processing by ResortsController#index as HTML
+  [1m[35mResort Load (3.0ms)[0m  SELECT "resorts".* FROM "resorts"
+Rendered resorts/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 66ms (Views: 36.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/resorts/2" for 127.0.0.1 at 2011-01-31 11:35:31 +1100
+  Processing by ResortsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bFNomvcq+HDZhm1x3sm5LQKMgfqXw5J0yWZwkuV8Kr8=", "id"=>"2"}
+  [1m[36mResort Load (2.0ms)[0m  [1mSELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 2) LIMIT 1[0m
+  [1m[35mAREL (1.0ms)[0m  DELETE FROM "resorts" WHERE ("resorts"."id" = 2)
+Redirected to http://localhost:3000/resorts
+Completed 302 Found in 43ms
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 11:35:32 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (1.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+  [1m[35mSQL (1.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+Migrating to RemoveAltitudeFromResort (20110131023418)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TEMPORARY TABLE "altered_resorts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "altitude" varchar(255), "season_start" datetime, "season_end" datetime, "green_runs" integer, "blue_runs" integer, "red_runs" integer, "black_runs" integer, "single_diamond_runs" integer, "double_diamond_runs" integer, "triple_diamond_runs" integer, "other_runs" integer, "carpet_lifts" integer, "drag_lifts" integer, "pommer_lifts" integer, "chair_lifts" integer, "covered_chair_lifts" integer, "express_chair_lifts" integer, "gondola_lifts" integer, "other_lifts" integer, "terrain_parks" integer, "snow_making" boolean, "average_snow_cm" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+  [1m[36mSQL (1.0ms)[0m  [1mDROP TABLE "resorts"[0m
+  [1m[35mSQL (0.0ms)[0m  CREATE TABLE "resorts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "season_start" datetime, "season_end" datetime, "green_runs" integer, "blue_runs" integer, "red_runs" integer, "black_runs" integer, "single_diamond_runs" integer, "double_diamond_runs" integer, "triple_diamond_runs" integer, "other_runs" integer, "carpet_lifts" integer, "drag_lifts" integer, "pommer_lifts" integer, "chair_lifts" integer, "covered_chair_lifts" integer, "express_chair_lifts" integer, "gondola_lifts" integer, "other_lifts" integer, "terrain_parks" integer, "snow_making" boolean, "average_snow_cm" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_resorts")[0m
+  [1m[35mSQL (1.0ms)[0m  DROP TABLE "altered_resorts"
+  [1m[36mSQL (0.0ms)[0m  [1mALTER TABLE "resorts" ADD "altitude_m" integer[0m
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "resorts" ADD "altitude_ft" integer
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110131023418')[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("resorts")[0m
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+Migrating to RemoveAltitudeFromResort (20110131023418)
+Migrating to AddTotalRunsToResorts (20110131031009)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mALTER TABLE "resorts" ADD "total_runs" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110131031009')
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 14:15:40 +1100
+  Processing by ResortsController#index as HTML
+  [1m[35mResort Load (1.0ms)[0m  SELECT "resorts".* FROM "resorts"
+Rendered resorts/index.html.erb within layouts/application (71.0ms)
+Completed   in 93ms
+
+ActionView::Template::Error (undefined method `altitude' for #<Resort:0x42e7240>):
+    33: <% @resorts.each do |resort| %>
+    34:   <tr>
+    35:     <td><%= resort.name %></td>
+    36:     <td><%= resort.altitude %></td>
+    37:     <td><%= resort.season_start %></td>
+    38:     <td><%= resort.season_end %></td>
+    39:     <td><%= resort.green_runs %></td>
+  app/views/resorts/index.html.erb:36:in `block in _app_views_resorts_index_html_erb___655785529_35068260_232594027'
+  app/views/resorts/index.html.erb:33:in `each'
+  app/views/resorts/index.html.erb:33:in `_app_views_resorts_index_html_erb___655785529_35068260_232594027'
+  app/controllers/resorts_controller.rb:7:in `index'
+
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 14:23:03 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (2.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (23.0ms)
+Completed   in 64ms
+
+ActionView::Template::Error (undefined method `altitude' for #<Resort:0x448f740>):
+    35: <% @resorts.each do |resort| %>
+    36:   <tr>
+    37:     <td><%= resort.name %></td>
+    38:     <td><%= resort.altitude %></td>
+    39:     <td><%= resort.season_start %></td>
+    40:     <td><%= resort.season_end %></td>
+    41:     <td><%= resort.green_runs %></td>
+  app/views/resorts/index.html.erb:38:in `block in _app_views_resorts_index_html_erb___655785529_35937108_232594027'
+  app/views/resorts/index.html.erb:35:in `each'
+  app/views/resorts/index.html.erb:35:in `_app_views_resorts_index_html_erb___655785529_35937108_232594027'
+  app/controllers/resorts_controller.rb:7:in `index'
+
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+Rendered C:/Ruby/lib/ruby/gems/1.9.1/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 14:24:12 +1100
+  Processing by ResortsController#index as HTML
+  [1m[35mResort Load (2.0ms)[0m  SELECT "resorts".* FROM "resorts"
+Rendered resorts/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 47ms (Views: 37.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts/1/edit" for 127.0.0.1 at 2011-01-31 14:24:45 +1100
+  Processing by ResortsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResort Load (19.0ms)[0m  [1mSELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 1) LIMIT 1[0m
+Rendered resorts/_form.html.erb (37.0ms)
+Rendered resorts/edit.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 90ms (Views: 55.0ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 14:25:27 +1100
+  Processing by ResortsController#index as HTML
+  [1m[35mResort Load (2.0ms)[0m  SELECT "resorts".* FROM "resorts"
+Rendered resorts/index.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 73ms (Views: 63.0ms | ActiveRecord: 2.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+Migrating to RemoveAltitudeFromResort (20110131023418)
+Migrating to AddTotalRunsToResorts (20110131031009)
+Migrating to CreateLinks (20110131053130)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "links" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "link" varchar(255), "link_name" varchar(255), "link_alt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110131053130')
+Migrating to CreateLinkCategories (20110131053358)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "link_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110131053358')
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("link_categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("links")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+Migrating to RemoveAltitudeFromResort (20110131023418)
+Migrating to AddTotalRunsToResorts (20110131031009)
+Migrating to CreateLinks (20110131053130)
+Migrating to CreateLinkCategories (20110131053358)
+Migrating to AddColumnsToResort (20110131064645)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mALTER TABLE "resorts" ADD "piste_map_link" varchar(255)[0m
+  [1m[35mSQL (0.0ms)[0m  ALTER TABLE "resorts" ADD "official_site_link" varchar(255)
+  [1m[36mSQL (1.0ms)[0m  [1mALTER TABLE "resorts" ADD "tourism_board_link" varchar(255)[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110131064645')
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("link_categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("links")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 17:47:31 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (2.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (48.0ms)
+Completed 200 OK in 71ms (Views: 60.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 17:53:59 +1100
+  Processing by ResortsController#index as HTML
+  [1m[35mResort Load (3.0ms)[0m  SELECT "resorts".* FROM "resorts"
+Rendered resorts/index.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 74ms (Views: 57.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/resorts/1/edit" for 127.0.0.1 at 2011-01-31 17:54:04 +1100
+  Processing by ResortsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mResort Load (1.0ms)[0m  [1mSELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 1) LIMIT 1[0m
+Rendered resorts/_form.html.erb (62.0ms)
+Rendered resorts/edit.html.erb within layouts/application (68.0ms)
+Completed 200 OK in 119ms (Views: 80.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 19:25:26 +1100
+  Processing by ResortsController#index as HTML
+  [1m[35mResort Load (2.0ms)[0m  SELECT "resorts".* FROM "resorts"
+Rendered resorts/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 52ms (Views: 41.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts/new" for 127.0.0.1 at 2011-01-31 19:28:41 +1100
+  Processing by ResortsController#new as HTML
+Rendered resorts/_form.html.erb (50.0ms)
+Rendered resorts/new.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 84ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateResorts (20110131000110)
+Migrating to RemoveAltitudeFromResort (20110131023418)
+Migrating to AddTotalRunsToResorts (20110131031009)
+Migrating to CreateLinks (20110131053130)
+Migrating to CreateLinkCategories (20110131053358)
+Migrating to AddColumnsToResort (20110131064645)
+Migrating to AddTotalLiftsToResort (20110131083412)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mALTER TABLE "resorts" ADD "total_lifts" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110131083412')
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("link_categories")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("links")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("resorts")
+
+
+Started GET "/resorts/new" for 127.0.0.1 at 2011-01-31 19:36:35 +1100
+  Processing by ResortsController#new as HTML
+Rendered resorts/_form.html.erb (32.0ms)
+Rendered resorts/new.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 84ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resorts/new" for 127.0.0.1 at 2011-01-31 19:37:44 +1100
+  Processing by ResortsController#new as HTML
+Rendered resorts/_form.html.erb (51.0ms)
+Rendered resorts/new.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 85ms (Views: 68.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/resorts/new" for 127.0.0.1 at 2011-01-31 19:38:30 +1100
+  Processing by ResortsController#new as HTML
+Rendered resorts/_form.html.erb (52.0ms)
+Rendered resorts/new.html.erb within layouts/application (58.0ms)
+Completed 200 OK in 86ms (Views: 69.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/resorts" for 127.0.0.1 at 2011-01-31 19:46:21 +1100
+  Processing by ResortsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bFNomvcq+HDZhm1x3sm5LQKMgfqXw5J0yWZwkuV8Kr8=", "resort"=>{"name"=>"La Plagne", "altitude_m"=>"3250", "altitude_ft"=>"", "season_start(1i)"=>"2011", "season_start(2i)"=>"1", "season_start(3i)"=>"31", "season_start(4i)"=>"08", "season_start(5i)"=>"28", "season_end(1i)"=>"2011", "season_end(2i)"=>"1", "season_end(3i)"=>"31", "season_end(4i)"=>"08", "season_end(5i)"=>"28", "total_runs"=>"", "green_runs"=>"", "blue_runs"=>"", "red_runs"=>"", "black_runs"=>"", "single_diamond_runs"=>"", "double_diamond_runs"=>"", "triple_diamond_runs"=>"", "other_runs"=>"", "total_lifts"=>"106", "carpet_lifts"=>"", "drag_lifts"=>"61", "pommer_lifts"=>"", "chair_lifts"=>"26", "covered_chair_lifts"=>"", "express_chair_lifts"=>"5", "gondola_lifts"=>"", "other_lifts"=>"", "terrain_parks"=>"", "snow_making"=>"0", "average_snow_cm"=>"", "piste_map_link"=>"", "official_site_link"=>"www.la-plagne.com", "tourism_board_link"=>""}, "commit"=>"Create Resort"}
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "resorts" ("name", "season_start", "season_end", "green_runs", "blue_runs", "red_runs", "black_runs", "single_diamond_runs", "double_diamond_runs", "triple_diamond_runs", "other_runs", "carpet_lifts", "drag_lifts", "pommer_lifts", "chair_lifts", "covered_chair_lifts", "express_chair_lifts", "gondola_lifts", "other_lifts", "terrain_parks", "snow_making", "average_snow_cm", "created_at", "updated_at", "altitude_m", "altitude_ft", "total_runs", "piste_map_link", "official_site_link", "tourism_board_link", "total_lifts") VALUES ('La Plagne', '2011-01-31 08:28:00.000000', '2011-01-31 08:28:00.000000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 61, NULL, 26, NULL, 5, NULL, NULL, NULL, 'f', NULL, '2011-01-31 08:46:21.377462', '2011-01-31 08:46:21.377462', 3250, NULL, NULL, '', 'www.la-plagne.com', '', 106)[0m
+Redirected to http://localhost:3000/resorts/2
+Completed 302 Found in 93ms
+
+
+Started GET "/resorts/2" for 127.0.0.1 at 2011-01-31 19:46:21 +1100
+  Processing by ResortsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mResort Load (2.0ms)[0m  SELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 2) LIMIT 1
+Rendered resorts/show.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 78ms (Views: 58.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 19:46:26 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (3.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 54ms (Views: 41.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/resorts/2" for 127.0.0.1 at 2011-01-31 19:47:54 +1100
+  Processing by ResortsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mResort Load (2.0ms)[0m  SELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 2) LIMIT 1
+Rendered resorts/show.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 78ms (Views: 41.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 19:47:59 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (3.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 73ms (Views: 61.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/resorts/2/edit" for 127.0.0.1 at 2011-01-31 19:48:02 +1100
+  Processing by ResortsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mResort Load (2.0ms)[0m  SELECT "resorts".* FROM "resorts" WHERE ("resorts"."id" = 2) LIMIT 1
+Rendered resorts/_form.html.erb (62.0ms)
+Rendered resorts/edit.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 119ms (Views: 80.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/resorts" for 127.0.0.1 at 2011-01-31 19:48:07 +1100
+  Processing by ResortsController#index as HTML
+  [1m[36mResort Load (4.0ms)[0m  [1mSELECT "resorts".* FROM "resorts"[0m
+Rendered resorts/index.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 74ms (Views: 62.0ms | ActiveRecord: 4.0ms)

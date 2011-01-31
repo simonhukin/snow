@@ -1,0 +1,79 @@
+<h1>Listing resorts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Altitude meters</th>
+    <th>Altitude feet</th>
+    <th>Season start</th>
+    <th>Season end</th>
+    <th>Total runs</th>
+    <th>Green runs</th>
+    <th>Blue runs</th>
+    <th>Red runs</th>
+    <th>Black runs</th>
+    <th>Single diamond runs</th>
+    <th>Double diamond runs</th>
+    <th>Triple diamond runs</th>
+    <th>Other runs</th>
+    <th>Total lifts</th>
+    <th>Carpet lifts</th>
+    <th>Drag lifts</th>
+    <th>Pommer lifts</th>
+    <th>Chair lifts</th>
+    <th>Covered chair lifts</th>
+    <th>Express chair lifts</th>
+    <th>Gondola lifts</th>
+    <th>Other lifts</th>
+    <th>Terrain parks</th>
+    <th>Snow making</th>
+    <th>Average snow cm</th>
+    <th>Piste map link</th>
+    <th>Official site link</th>
+    <th>Tourism board link</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @resorts.each do |resort| %>
+  <tr>
+    <td><%= resort.name %></td>
+    <td><%= resort.altitude_m %></td>
+    <td><%= resort.altitude_ft %></td>
+    <td><%= resort.season_start %></td>
+    <td><%= resort.season_end %></td>
+    <td><%= resort.total_runs %></td>
+    <td><%= resort.green_runs %></td>
+    <td><%= resort.blue_runs %></td>
+    <td><%= resort.red_runs %></td>
+    <td><%= resort.black_runs %></td>
+    <td><%= resort.single_diamond_runs %></td>
+    <td><%= resort.double_diamond_runs %></td>
+    <td><%= resort.triple_diamond_runs %></td>
+    <td><%= resort.other_runs %></td>
+    <td><%= resort.total_lifts %></td>
+    <td><%= resort.carpet_lifts %></td>
+    <td><%= resort.drag_lifts %></td>
+    <td><%= resort.pommer_lifts %></td>
+    <td><%= resort.chair_lifts %></td>
+    <td><%= resort.covered_chair_lifts %></td>
+    <td><%= resort.express_chair_lifts %></td>
+    <td><%= resort.gondola_lifts %></td>
+    <td><%= resort.other_lifts %></td>
+    <td><%= resort.terrain_parks %></td>
+    <td><%= resort.snow_making %></td>
+    <td><%= resort.average_snow_cm %></td>
+    <td><%= resort.piste_map_link %></td>
+    <td><%= resort.official_site_link %></td>
+    <td><%= resort.tourism_board_link %></td>
+    <td><%= link_to 'Show', resort %></td>
+    <td><%= link_to 'Edit', edit_resort_path(resort) %></td>
+    <td><%= link_to 'Destroy', resort, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Resort', new_resort_path %>
